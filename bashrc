@@ -17,8 +17,13 @@ PROMPT_COMMAND='history -a;history -n'
 
 if [ -f ~/.git-completion.bash ]; then . ~/.git-completion.bash; fi
 
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+export LIBRARY_PATH="$LIBRARY_PATH:$SDKROOT/usr/lib"
 
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/Users/debajyotichatterjee/zig-bootstrap/out/zig-native-macos-none-native:$PATH"
+
+. "$HOME/.cargo/env"
 eval "$(starship init bash)"
 
 # Created by `pipx` on 2022-09-28 04:59:30

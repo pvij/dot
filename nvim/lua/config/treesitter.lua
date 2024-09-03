@@ -14,6 +14,8 @@ require("nvim-treesitter.configs").setup({
         "git_rebase",
         "c",
         "zig",
+        "rust",
+        "toml",
 	},
 	sync_install = true,
 	highlight = {
