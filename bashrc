@@ -21,7 +21,8 @@ export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 export LIBRARY_PATH="$LIBRARY_PATH:$SDKROOT/usr/lib"
 
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-export PATH="/Users/debajyotichatterjee/zig-bootstrap/out/zig-native-macos-none-native:$PATH"
+export PATH="$HOME/zig-bootstrap/out/zig-native-macos-none-native:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 . "$HOME/.cargo/env"
 eval "$(starship init bash)"
