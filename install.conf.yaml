@@ -6,14 +6,6 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.tmux: tmux
-    ~/.tmux.conf: tmux.conf
-    # ~/.config/alacritty/alacritty.yml:
-    #     create: true
-    #     path: alacritty.yml
-    ~/.config/alacritty/alacritty.toml:
-        create: true
-        path: alacritty.toml
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.config/nvim: nvim
@@ -21,9 +13,8 @@
 - shell:
     - [git clean -d -x -f, Cleaning directory]
     - [git submodule update --init --recursive, Installing submodules]
-    - [~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null 2>&1, Installing tmux plugins]
     - 
-      command: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+      command: nvim --headless "+Lazy sync" +qa
       description: Installing nvim plugins
       stdout: true
       stderr: true
