@@ -15,6 +15,8 @@ PROMPT_COMMAND='history -a;history -n'
 
 [ -f /opt/local/share/fzf/shell/key-bindings.bash ] && source /opt/local/share/fzf/shell/key-bindings.bash
 
+[ -f /opt/local/share/fzf/shell/completion.bash ] && source /opt/local/share/fzf/shell/completion.bash
+
 if [ -f ~/.git-completion.bash ]; then . ~/.git-completion.bash; fi
 
 export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
