@@ -5,19 +5,19 @@ return {
       { "ms-jpq/coq_nvim", branch = "coq" },
     },
     config = function()
-      local lspconfig = require("lspconfig")
+      local lspconfig = vim.lsp.config 
       local lspconfig_util = require("lspconfig/util")
       local coq = require("coq")
 
       -- Python LSP: Jedi
-      lspconfig.jedi_language_server.setup(
-        coq.lsp_ensure_capabilities({
-          documentFormatting = false,
-        })
+      lspconfig("jedi_language_server", coq.lsp_ensure_capabilities({
+	      documentFormatting = false,
+      	})
       )
+      vim.lsp.enable("jedi_language_server")
 
       -- Python formatter/linter via EFM
-      lspconfig.efm.setup({
+      lspconfig("efm", {
         init_options = { documentFormatting = true },
         filetypes = { "python" },
         settings = {
@@ -43,22 +43,24 @@ return {
           },
         },
       })
+      vim.lsp.enable("efm")
 
       -- Go LSP: gopls
-      lspconfig.gopls.setup(
-        coq.lsp_ensure_capabilities({
+      lspconfig("gopls", coq.lsp_ensure_capabilities({
           cmd = { "gopls", "serve" },
           filetypes = { "go", "gomod" },
           root_dir = lspconfig_util.root_pattern("go.work", "go.mod", ".git"),
         })
       )
+      vim.lsp.enable("gopls")
 
       -- C/C++ LSP: ccls
-      lspconfig.ccls.setup(
-        coq.lsp_ensure_capabilities({
+      lspconfig("ccls", coq.lsp_ensure_capabilities({
           cmd = { "ccls-clang-10" },
         })
       )
+      vim.lsp.enable("ccls")
+
     end,
   },
 }
