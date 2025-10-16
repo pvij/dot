@@ -33,3 +33,9 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+-- Set line numbers by default
+vim.opt.number = true
+
+-- Disable mouse
+vim.opt.mouse = ""
