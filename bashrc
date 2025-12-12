@@ -31,3 +31,4 @@ eval "$(starship init bash)"
 
 # Created by `pipx` on 2022-09-28 04:59:30
 export PATH="$PATH:$HOME/.local/bin"
+source /opt/local/share/nvm/init-nvm.sh
