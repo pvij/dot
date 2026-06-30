@@ -2,33 +2,29 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "VeryLazy" },
+    lazy = false,
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          	"bash",
-		"dockerfile",
-		"go",
-		"json",
-		"lua",
-		"python",
-		"yaml",
-		"gitignore",
-		"gosum",
-		"gomod",
-		"git_rebase",
-		"c",
-		"zig",
-		"rust",
-		"toml",
-        },
-        sync_install = true,
-        highlight = { enable = true },
-      })
-
-      -- enable treesitter-based folding
-      -- vim.opt.foldmethod = "expr"
-      -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+      require("nvim-treesitter").install{
+        "bash",
+	"dockerfile",
+	"go",
+	"json",
+	"lua",
+	"python",
+	"yaml",
+	"gitignore",
+	"gosum",
+	"gomod",
+	"git_rebase",
+	"c",
+	"zig",
+	"rust",
+	"toml",
+	"java",
+	"scala"
+	-- sync_install = true,
+        -- highlight = { enable = true },
+      }
     end,
   },
 }
