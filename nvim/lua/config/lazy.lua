@@ -39,3 +39,11 @@ vim.opt.number = true
 
 -- Disable mouse
 vim.opt.mouse = ""
+
+-- vim diagnostic config 
+vim.diagnostic.config({virtual_lines = true})
+vim.keymap.set(
+  "n",
+  "<leader>d",
+  function() vim.diagnostic.open_float() end
+)
