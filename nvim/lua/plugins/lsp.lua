@@ -10,9 +10,9 @@ return {
       local coq = require("coq")
 
       -- Python LSP: Jedi
-      lspconfig("jedi_language_server", coq.lsp_ensure_capabilities({
+      lspconfig("jedi_language_server", {
 	      documentFormatting = false,
-      	})
+      	}
       )
       vim.lsp.enable("jedi_language_server")
 
@@ -46,18 +46,18 @@ return {
       vim.lsp.enable("efm")
 
       -- Go LSP: gopls
-      lspconfig("gopls", coq.lsp_ensure_capabilities({
+      lspconfig("gopls", {
           cmd = { "gopls", "serve" },
           filetypes = { "go", "gomod" },
           root_dir = lspconfig_util.root_pattern("go.work", "go.mod", ".git"),
-        })
+        }
       )
       vim.lsp.enable("gopls")
 
       -- C/C++ LSP: ccls
-      lspconfig("ccls", coq.lsp_ensure_capabilities({
+      lspconfig("ccls", {
           cmd = { "ccls-clang-10" },
-        })
+        }
       )
       vim.lsp.enable("ccls")
 

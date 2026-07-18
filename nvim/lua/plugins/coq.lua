@@ -9,12 +9,7 @@ return {
     lazy = false,        -- load at startup
     init = function()
       -- enable COQ to auto-start with no greeting message
-      vim.g.coq_settings = {
-        auto_start = true,
-      }
-    end,
-    config = function()
-      vim.cmd("COQnow -s")
+      vim.g.coq_settings = {}
     end,
   },
 }
